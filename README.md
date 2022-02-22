@@ -1,17 +1,21 @@
 # kakeibo
-我が家の家計簿アプリ
+家計簿アプリ
 
 # 開発言語・ツール
+asdf
+intellij
+vim
+
 
 ## フロントエンド
 - HTML5/CSS3
-- Phoenix
 
-## バックエンド
-- Elixir
-- Erlang
+## バックエンド(API Server)
+- Elixir: 1.13.3
+- Erlang: 24.2.1
+- Phoenix: v1.6.6
 - Ecto
-- PostgreSQL
+- PostgreSQL: postgres:12.5
 
 ## その他
 - docker-compose
