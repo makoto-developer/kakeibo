@@ -11,7 +11,7 @@ defmodule KakeiboWeb.BalanceController do
     render(conn, "index.json", balance: balance)
   end
 
-  def create(conn, %{"balance" => balance_params}) do
+  def create(conn, balance_params) do
     IO.inspect("aaaaaaaaaaa")
     with {:ok, %Balance{} = balance} <- Accounts.create_balance(balance_params) do
       conn

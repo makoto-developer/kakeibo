@@ -20,12 +20,15 @@ mix ecto.migrate
 投入
 ```zsh
 # User
-curl -X POST -H "Content-type: application/json" -d '{"user":{"name":"tom","age": 20}}' http://localhost:4000/api/users
+curl -X POST -H "Content-type: application/json" -d '{"name":"tom","age": 20}' http://localhost:4000/api/users
+curl -X POST -H "Content-type: application/json" -d '{"name":"alice","age": 23}' http://localhost:4000/api/users
+
 
 # Balance
 # NG date型のフォーマットが間違っている
 #curl -X POST -H "Content-type: application/json" -d '{"balance":{"day": "2022/2/25", "title":"振り", "expense":0, "income":250000, "who":"tom"}}' http://localhost:4000/api/balance
-curl -X POST -H "Content-type: application/json" -d '{"balance":{"day": { "day": 25, "month": 1, "year": 2022}, "title":"振り", "expense":0, "income":250000, "who":"tom"}}' http://localhost:4000/api/balance
+curl -X POST -H "Content-type: application/json" -d '{"day": { "day": 25, "month": 1, "year": 2022}, "title":"振り", "expense":0, "income":250000, "who":"tom"}' http://localhost:4000/api/balance
+curl -X POST -H "Content-type: application/json" -d '{"day": { "day": 25, "month": 1, "year": 2022}, "title":"昼ごはん", "expense":2000, "income":0, "who":"alice"}' http://localhost:4000/api/balance
 ```
 
 取得
