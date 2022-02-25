@@ -12,6 +12,7 @@ defmodule KakeiboWeb.Router do
 
   pipeline :api do
     plug :accepts, ["json"]
+    plug CORSPlug # 追加
   end
 
   scope "/", KakeiboWeb do
