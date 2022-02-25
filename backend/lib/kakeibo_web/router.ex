@@ -24,6 +24,7 @@ defmodule KakeiboWeb.Router do
   scope "/api", KakeiboWeb do
     pipe_through :api
     resources "/users", UserController, except: [:new, :edit]
+    resources "/balance", BalanceController, except: [:new, :edit]
   end
 
   # Enables LiveDashboard only for development

@@ -1,19 +1,36 @@
-# Kakeibo
+# Kakeibo Backend
 
-To start your Phoenix server:
+## 起動
 
-  * Install dependencies with `mix deps.get`
-  * Create and migrate your database with `mix ecto.setup`
-  * Start Phoenix endpoint with `mix phx.server` or inside IEx with `iex -S mix phx.server`
+```zsh
+mix phx.server
+```
 
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
+スキーマ作成
+```elixir
+mix phx.gen.json Accounts User users name:string age:integer
+mix phx.gen.json Accounts Balance balance day:date title:string expense:integer income:integer who:string
 
-Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
+# 最後に必ず実行
+mix ecto.migrate
+```
 
-## Learn more
+## API
 
-  * Official website: https://www.phoenixframework.org/
-  * Guides: https://hexdocs.pm/phoenix/overview.html
-  * Docs: https://hexdocs.pm/phoenix
-  * Forum: https://elixirforum.com/c/phoenix-forum
-  * Source: https://github.com/phoenixframework/phoenix
+投入
+```zsh
+# User
+curl -X POST -H "Content-type: application/json" -d '{"user":{"name":"tom","age": 20}}' http://localhost:4000/api/users
+
+# Balance
+# NG date型のフォーマットが間違っている
+#curl -X POST -H "Content-type: application/json" -d '{"balance":{"day": "2022/2/25", "title":"振り", "expense":0, "income":250000, "who":"tom"}}' http://localhost:4000/api/balance
+curl -X POST -H "Content-type: application/json" -d '{"balance":{"day": { "day": 25, "month": 1, "year": 2022}, "title":"振り", "expense":0, "income":250000, "who":"tom"}}' http://localhost:4000/api/balance
+```
+
+取得
+
+```zsh
+curl  http://localhost:4000/api/users/1
+curl  http://localhost:4000/api/balance/1
+```
