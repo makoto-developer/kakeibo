@@ -17,6 +17,7 @@ defmodule KakeiboWeb.BalanceView do
       title: balance.title,
       expense: balance.expense,
       income: balance.income,
+      method: balance.method,
       who: balance.who
     }
   end

@@ -9,6 +9,7 @@ defmodule KakeiboWeb.BalanceControllerTest do
     day: ~D[2022-02-24],
     expense: 42,
     income: 42,
+    method: "some method",
     title: "some title",
     who: "some who"
   }
@@ -16,10 +17,11 @@ defmodule KakeiboWeb.BalanceControllerTest do
     day: ~D[2022-02-25],
     expense: 43,
     income: 43,
+    method: "some updated method",
     title: "some updated title",
     who: "some updated who"
   }
-  @invalid_attrs %{day: nil, expense: nil, income: nil, title: nil, who: nil}
+  @invalid_attrs %{day: nil, expense: nil, income: nil, method: nil, title: nil, who: nil}
 
   setup %{conn: conn} do
     {:ok, conn: put_req_header(conn, "accept", "application/json")}
@@ -44,6 +46,7 @@ defmodule KakeiboWeb.BalanceControllerTest do
                "day" => "2022-02-24",
                "expense" => 42,
                "income" => 42,
+               "method" => "some method",
                "title" => "some title",
                "who" => "some who"
              } = json_response(conn, 200)["data"]
@@ -69,6 +72,7 @@ defmodule KakeiboWeb.BalanceControllerTest do
                "day" => "2022-02-25",
                "expense" => 43,
                "income" => 43,
+               "method" => "some updated method",
                "title" => "some updated title",
                "who" => "some updated who"
              } = json_response(conn, 200)["data"]

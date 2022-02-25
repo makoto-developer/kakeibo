@@ -6,6 +6,7 @@ defmodule Kakeibo.Accounts.Balance do
     field :day, :date
     field :expense, :integer
     field :income, :integer
+    field :method, :string
     field :title, :string
     field :who, :string
 
@@ -15,7 +16,7 @@ defmodule Kakeibo.Accounts.Balance do
   @doc false
   def changeset(balance, attrs) do
     balance
-    |> cast(attrs, [:day, :title, :expense, :income, :who])
-    |> validate_required([:day, :title, :expense, :income, :who])
+    |> cast(attrs, [:day, :title, :expense, :income, :method, :who])
+    |> validate_required([:day, :title, :expense, :income, :method, :who])
   end
 end

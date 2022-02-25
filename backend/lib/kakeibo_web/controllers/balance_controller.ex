@@ -12,7 +12,6 @@ defmodule KakeiboWeb.BalanceController do
   end
 
   def create(conn, balance_params) do
-    IO.inspect("aaaaaaaaaaa")
     with {:ok, %Balance{} = balance} <- Accounts.create_balance(balance_params) do
       conn
       |> put_status(:created)

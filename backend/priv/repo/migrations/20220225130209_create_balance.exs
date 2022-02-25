@@ -7,6 +7,7 @@ defmodule Kakeibo.Repo.Migrations.CreateBalance do
       add :title, :string
       add :expense, :integer
       add :income, :integer
+      add :method, :string
       add :who, :string
 
       timestamps()
