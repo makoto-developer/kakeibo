@@ -1,6 +1,8 @@
 import dayjs from 'dayjs';
 import ApiClient from "../../util/api";
 import {useEffect, useState} from "react";
+import Button from "../Button/Button";
+import {useRouter} from "next/router";
 
 type BalanceType = {
     day: string,
@@ -13,6 +15,7 @@ type BalanceType = {
 }
 
 const Balance = () => {
+    const router = useRouter()
     const fetchBalance = async () => {
         return await ApiClient.get("/api/balance/")
             .then(res => res.data)
@@ -49,6 +52,7 @@ const Balance = () => {
     const data = shapingData(balanceData)
     return (
         <div>
+            <Button text={'追加'} type={'primary'} action={() => router.push('/add')} />
             <table>
                 <thead>
                 <tr>
