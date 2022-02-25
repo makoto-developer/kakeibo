@@ -3,11 +3,11 @@ defmodule KakeiboWeb.BalanceView do
   alias KakeiboWeb.BalanceView
 
   def render("index.json", %{balance: balance}) do
-    %{data: render_many(balance, BalanceView, "balance.json")}
+    render_many(balance, BalanceView, "balance.json")
   end
 
   def render("show.json", %{balance: balance}) do
-    %{data: render_one(balance, BalanceView, "balance.json")}
+    render_one(balance, BalanceView, "balance.json")
   end
 
   def render("balance.json", %{balance: balance}) do
