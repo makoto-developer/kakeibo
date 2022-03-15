@@ -1,10 +1,10 @@
 type ButtonType = {
     text: string
     type: 'primary' | 'seconday'
-    action: VoidFunction
+    onClick: VoidFunction
 }
-const Button = (props: ButtonType) => {
-    const {text, action} = props
+const Index = (props: ButtonType) => {
+    const {text, onClick} = props
 
     // TODO typeの制御を書く
     const style = {
@@ -14,7 +14,7 @@ const Button = (props: ButtonType) => {
         'width': '100%',
         'height': '40px'
     }
-    return <button style={style} onClick={() => action()}>{text}</button>
+    return <button style={style} onClick={() => onClick()}>{text}</button>
 }
 
-export default Button
+export default Index

@@ -69,4 +69,23 @@ defmodule Kakeibo.AccountsFixtures do
 
     balance
   end
+
+  @doc """
+  Generate a balance.
+  """
+  def balance_fixture(attrs \\ %{}) do
+    {:ok, balance} =
+      attrs
+      |> Enum.into(%{
+        day: ~D[2022-03-14],
+        expense: 42,
+        income: 42,
+        method: "some method",
+        title: "some title",
+        who: "some who"
+      })
+      |> Kakeibo.Accounts.create_balance()
+
+    balance
+  end
 end

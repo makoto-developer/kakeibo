@@ -1,7 +1,7 @@
 import dayjs from 'dayjs';
 import ApiClient from "../../util/api";
 import {useEffect, useState} from "react";
-import Button from "../Button/Button";
+import Index from "../Button";
 import {useRouter} from "next/router";
 
 type BalanceType = {
@@ -28,7 +28,7 @@ const Balance = () => {
     // ]
 
     useEffect(() => {
-        fetchBalance().then(res => setBalanceData(res)
+        fetchBalance().then(res => setBalanceData(res.data)
         )
     }, [])
     const [balanceData, setBalanceData] = useState<Array<BalanceType>>([])
@@ -49,10 +49,11 @@ const Balance = () => {
     }, [])
         .reverse()
 
+    console.log("balanceData:", balanceData)
     const data = shapingData(balanceData)
     return (
         <div>
-            <Button text={'追加'} type={'primary'} action={() => router.push('/add')} />
+            <Index text={'追加'} type={'primary'} onClick={() => router.push('/add')} />
             <table>
                 <thead>
                 <tr>

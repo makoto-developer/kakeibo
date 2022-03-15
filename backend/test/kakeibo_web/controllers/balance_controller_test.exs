@@ -6,7 +6,7 @@ defmodule KakeiboWeb.BalanceControllerTest do
   alias Kakeibo.Accounts.Balance
 
   @create_attrs %{
-    day: ~D[2022-02-24],
+    day: ~D[2022-03-14],
     expense: 42,
     income: 42,
     method: "some method",
@@ -14,7 +14,7 @@ defmodule KakeiboWeb.BalanceControllerTest do
     who: "some who"
   }
   @update_attrs %{
-    day: ~D[2022-02-25],
+    day: ~D[2022-03-15],
     expense: 43,
     income: 43,
     method: "some updated method",
@@ -43,7 +43,7 @@ defmodule KakeiboWeb.BalanceControllerTest do
 
       assert %{
                "id" => ^id,
-               "day" => "2022-02-24",
+               "day" => "2022-03-14",
                "expense" => 42,
                "income" => 42,
                "method" => "some method",
@@ -69,7 +69,7 @@ defmodule KakeiboWeb.BalanceControllerTest do
 
       assert %{
                "id" => ^id,
-               "day" => "2022-02-25",
+               "day" => "2022-03-15",
                "expense" => 43,
                "income" => 43,
                "method" => "some updated method",
