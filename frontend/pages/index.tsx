@@ -1,7 +1,7 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import styles from '../styles/App.module.css'
-import Balance from "../components/Balance";
+import Balance from "../components/PageBalance";
 
 const Home: NextPage = () => {
   return (

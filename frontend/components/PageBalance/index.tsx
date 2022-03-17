@@ -3,6 +3,7 @@ import ApiClient from "../../util/api";
 import {useEffect, useState} from "react";
 import Index from "../Button";
 import {useRouter} from "next/router";
+import s from './style.module.scss'
 
 type BalanceType = {
     day: string,
