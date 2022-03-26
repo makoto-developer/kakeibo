@@ -54,7 +54,7 @@ const Balance = () => {
     const data = shapingData(balanceData)
     return (
         <div>
-            <Index text={'追加'} type={'primary'} onClick={() => router.push('/add')} />
+            <Index name={'追加'} type={'primary'} onClick={() => router.push('/add')} />
             <table>
                 <thead>
                 <tr>

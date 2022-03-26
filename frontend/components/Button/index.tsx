@@ -1,10 +1,10 @@
 type ButtonType = {
-    text: string
-    type: 'primary' | 'seconday'
+    name: string
+    primary?: boolean
     onClick: VoidFunction
 }
 const Index = (props: ButtonType) => {
-    const {text, onClick} = props
+    const {name, primary = true, onClick} = props
 
     // TODO typeの制御を書く
     const style = {
@@ -14,7 +14,8 @@ const Index = (props: ButtonType) => {
         'width': '100%',
         'height': '40px'
     }
-    return <button style={style} onClick={() => onClick()}>{text}</button>
+
+    return <button style={style} onClick={() => onClick()}>{name}</button>
 }
 
 export default Index

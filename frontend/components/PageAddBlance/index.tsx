@@ -23,8 +23,9 @@ const Add = () => {
     const onSubmit = (data: any) => console.log(data);
     const payMethods = ['現金', 'd-card', 'jal-card']
 
-    return <div style={s.root}>
-        <Button text={'戻る'} onClick={() => router.back()} />
+    return <div>
+        <div style={s.root}>
+        <Button name={'戻る'} onClick={() => router.back()} />
         <div style={{
             'display': 'flex',
             'justifyContent': 'center',
@@ -130,6 +131,7 @@ const Add = () => {
                 />
             </form>
         </div>
+    </div>
     </div>
 }
 
