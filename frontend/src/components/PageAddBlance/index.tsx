@@ -48,7 +48,14 @@ const Add = () => {
       .then(res => res.data)
   }
 
-  const onSubmit = (data: any) => console.log(data);
+  const onSubmit = (data: any) => {
+    const postBalance = async () => {
+      return await ApiClient.post("/api/balance/", data)
+        .then(res => res.data)
+        .catch(error => console.error('cuase error:', error))
+    }
+    postBalance()
+  }
   const payMethods = ['現金', 'd-card', 'jal-card']
 
   const errorMessage = () => {
