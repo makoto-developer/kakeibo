@@ -6,9 +6,9 @@ defmodule KakeiboWeb do
   This can be used in your application as:
 
       use KakeiboWeb, :controller
-      use KakeiboWeb, :view
+      use KakeiboWeb, :ui
 
-  The definitions below will be executed for every view,
+  The definitions below will be executed for every ui,
   controller, etc, so keep them short and clean, focused
   on imports, uses and aliases.
 
@@ -102,7 +102,7 @@ defmodule KakeiboWeb do
   end
 
   @doc """
-  When used, dispatch to the appropriate controller/view/etc.
+  When used, dispatch to the appropriate controller/ui/etc.
   """
   defmacro __using__(which) when is_atom(which) do
     apply(__MODULE__, which, [])
