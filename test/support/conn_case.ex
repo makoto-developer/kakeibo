@@ -19,15 +19,15 @@ defmodule KakeiboWeb.ConnCase do
 
   using do
     quote do
+      # The default endpoint for testing
+      @endpoint KakeiboWeb.Endpoint
+
+      use KakeiboWeb, :verified_routes
+
       # Import conveniences for testing with connections
       import Plug.Conn
       import Phoenix.ConnTest
       import KakeiboWeb.ConnCase
-
-      alias KakeiboWeb.Router.Helpers, as: Routes
-
-      # The default endpoint for testing
-      @endpoint KakeiboWeb.Endpoint
     end
   end
 

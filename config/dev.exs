@@ -23,10 +23,10 @@ config :kakeibo, KakeiboWeb.Endpoint,
   check_origin: false,
   code_reloader: true,
   debug_errors: true,
-  secret_key_base: "qGv7xE4b0HfCZiYHtB1Rr6Vqu4+0/Hzkze7iC7n48Dp/pALay8tUOCbspp2yHLA5",
+  secret_key_base: "ECx8l3UXg1yD6u3MIHr3UZbVifHHffuKrqBjC9wm4C6BUJGdP2Vkst3mPkg38gvx",
   watchers: [
-    # Start the esbuild watcher by calling Esbuild.install_and_run(:default, args)
-    esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]}
+    esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]},
+    tailwind: {Tailwind, :install_and_run, [:default, ~w(--watch)]}
   ]
 
 # ## SSL Support
@@ -37,7 +37,6 @@ config :kakeibo, KakeiboWeb.Endpoint,
 #
 #     mix phx.gen.cert
 #
-# Note that this task requires Erlang/OTP 20 or later.
 # Run `mix help phx.gen.cert` for more information.
 #
 # The `http:` config above can be replaced with:
@@ -58,11 +57,12 @@ config :kakeibo, KakeiboWeb.Endpoint,
   live_reload: [
     patterns: [
       ~r"priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$",
-      ~r"priv/gettext/.*(po)$",
-      ~r"lib/kakeibo_web/(live|views)/.*(ex)$",
-      ~r"lib/kakeibo_web/templates/.*(eex)$"
+      ~r"lib/kakeibo_web/(controllers|live|components)/.*(ex|heex)$"
     ]
   ]
+
+# Enable dev routes for dashboard and mailbox
+config :kakeibo, dev_routes: true
 
 # Do not include metadata nor timestamps in development logs
 config :logger, :console, format: "[$level] $message\n"

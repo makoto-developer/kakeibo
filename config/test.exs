@@ -17,14 +17,11 @@ config :kakeibo, Kakeibo.Repo,
 # you can enable the server option below.
 config :kakeibo, KakeiboWeb.Endpoint,
   http: [ip: {127, 0, 0, 1}, port: 4002],
-  secret_key_base: "Iid/PEFgB1v9N+3Xy7apItpGQj0wel6pzlwfM0IpoirrZXhAMKb28RQs0DEDCdyF",
+  secret_key_base: "l2q2KnKHbEkNU06GspN8t4ngE+yXpwyhstzSB2IHtIsX73QusK4OMm3V2y6E6LAa",
   server: false
 
-# In test we don't send emails.
-config :kakeibo, Kakeibo.Mailer, adapter: Swoosh.Adapters.Test
-
 # Print only warnings and errors during test
-config :logger, level: :warn
+config :logger, level: :warning
 
 # Initialize plugs at runtime for faster test compilation
 config :phoenix, :plug_init_mode, :runtime

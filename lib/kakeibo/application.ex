@@ -8,10 +8,10 @@ defmodule Kakeibo.Application do
   @impl true
   def start(_type, _args) do
     children = [
-      # Start the Ecto repository
-      Kakeibo.Repo,
       # Start the Telemetry supervisor
       KakeiboWeb.Telemetry,
+      # Start the Ecto repository
+      Kakeibo.Repo,
       # Start the PubSub system
       {Phoenix.PubSub, name: Kakeibo.PubSub},
       # Start the Endpoint (http/https)
